@@ -59,5 +59,5 @@ Below are the methods exposed by `JsBridge`.
 
 | Method | Details |
 | :--- | :--- |
-| `exposeMethod(classRef: any, namespace: string, fnName: string[] | string)` | Expose angular component method on javascript window object. `classRef`: Reference of current class, generally `this` `namespace`: Name of namespace on which method is exposed, could be any string, if null method will be exposed on `window` `fnName`: Name of function to be exposed, nust match component method name |
+| `exposeMethod(classRef: any, namespace: string, fnName: string[] &#124; string)` | Expose angular component method on javascript window object. `classRef`: Reference of current class, generally `this` `namespace`: Name of namespace on which method is exposed, could be any string, if null method will be exposed on `window` `fnName`: Name of function to be exposed, nust match component method name |
 | `executeMethod(namespace: string, methodName: string, ...args: any[])` | Executes javascript method outsize angular |
