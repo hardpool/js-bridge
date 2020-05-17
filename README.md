@@ -1,27 +1,63 @@
-# JsBridgeLib
+# @hardpool/js-bridge
+![Example GIF](https://img.shields.io/badge/support-angular%209.x-brightgreen.svg)  ![Example GIF](https://img.shields.io/badge/support-angular%205.x+-brightgreen.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app. 
 
-## Development server
+## Demo
+[Click here to see it in action!](https://hardikdabhi.github.io/js-bridge/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
+`npm i @hardpool/js-bridge`
 
-## Code scaffolding
+## Usage
+Import `JsBridgeModule` in your module.
+``` typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+import { JsBridgeModule } from '@hardpool/js-bridge';
 
-## Build
+@NgModule({
+  // ...
+  imports: [
+	// ...
+	JsBridgeModule.forRoot()
+  ],
+  // ...
+})
+export class AppModule { }
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Import service in component and expose component methods as required [using js bridge methods](#API).
 
-## Running unit tests
+component.ts
+``` typescript
+import { JsBridgeService } from '@hardpool/js-bridge';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  // ...
+})
+export class DemoComponent implements OnInit {
+	constructor(..., jsBridge: JsBridgeService, ...) {
+		jsBridge.exposeMethod(this, "someNamespace", "someMethod");
+	}
 
-## Running end-to-end tests
+	someMethod(...params) {
+		...
+	}
+}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+In javascript call method like,
+``` javascript
+someNamespace.someMethod(...args);
+```
 
-## Further help
+## API
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Below are the methods exposed by `JsBridge`.
+
+| Method | Details |
+| :--- | :--- |
+| `exposeMethod(classRef: any, namespace: string, fnName: string[] | string)` | Expose angular component method on javascript window object. `classRef`: Reference of current class, generally `this` `namespace`: Name of namespace on which method is exposed, could be any string, if null method will be exposed on `window` `fnName`: Name of function to be exposed, nust match component method name |
+| `executeMethod(namespace: string, methodName: string, ...args: any[])` | Executes javascript method outsize angular |
