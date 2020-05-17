@@ -1,12 +1,21 @@
 {
   "name": "@hardpool/js-bridge-lib",
-  "version": "0.0.0",
+	"version": "1.0.0",
+	"bugs": "https://github.com/hardikdabhi/js-bridge/issues",
   "scripts": {
     "start": "ng serve",
 		"start-lib": "ng build js-bridge --watch",
-		"build": "ng build --prod --output-path docs --base-href /js-bridge-lib/"
+		"build": "ng build --prod --output-path docs --base-href /js-bridge/",
+		"build-lib": "ng build js-bridge",
+		"publish": "npm publish --access public"
   },
-  "private": true,
+	"private": false,
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/hardikdabhi/js-bridge.git"
+	},
+	"keywords": ["angular","angular4","angular5","angular 5","angular 6","javascript","co exist","jsbridge","js-bridge","method","expose"],
+  "license": "MIT",
   "dependencies": {
     "@angular/animations": "~9.1.7",
     "@angular/cdk": "^9.2.3",
