@@ -24,7 +24,7 @@ export class JsBridgeService {
 		});
 	}
 
-	public static executeMethod(namespace: string, methodName: string, ...args: any[]){
+	public executeMethod(namespace: string, methodName: string, ...args: any[]){
 		return (<any>window)[namespace][methodName](...args);
 	}
 

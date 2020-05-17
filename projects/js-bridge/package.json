@@ -1,6 +1,13 @@
 {
   "name": "@hardpool/js-bridge",
-  "version": "0.0.1",
+  "version": "1.0.0",
+	"bugs": "https://github.com/hardikdabhi/js-bridge/issues",
+	"private": false,
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/hardikdabhi/js-bridge.git"
+	},
+	"keywords": ["angular","angular4","angular5","angular 5","angular 6","javascript","co exist","jsbridge","js-bridge","method","expose"],
   "peerDependencies": {
     "@angular/common": "^9.1.7",
     "@angular/core": "^9.1.7",
