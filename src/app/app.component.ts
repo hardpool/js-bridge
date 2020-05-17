@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JsBridgeService } from '@hardpool/js-bridge';
 
 @Component({
   selector: 'hd-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'js-bridge-lib';
+	testVar: string = "Click HTML or Angular button.";
+	
+	constructor(jsBridge: JsBridgeService) {
+		jsBridge.exposeMethod(this, "jsBridge", "setText");
+	}
+
+	setText(text) {
+		this.testVar = text;
+	}
+
 }

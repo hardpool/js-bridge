@@ -2,12 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>JsBridgeLib</title>
+  <title>JS Bridge Library</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-  <hd-root></hd-root>
+<body class="mat-typography" style="background-color: #ddd;">
+	<hd-root></hd-root>
+	
+	<div style="max-width: 400px; margin: 4rem auto;">
+		<div class="mat-toolbar mat-primary mat-toolbar-single-row">
+			Other HTML
+			<!-- <span style="flex: 1 1 auto;"></span>
+			<button class="mat-focus-indicator mat-icon-button mat-button-base">
+				<span class="mat-button-wrapper"><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">code</mat-icon></span>
+			</button> -->
+		</div>
+		<div class="mat-card mat-focus-indicator">
+			<div class="mat-card-header-text">
+				<div class="mat-card-title">HTML card</div>
+				<div class="mat-card-subtitle">This card is plain html outside angular</div>
+			</div>
+			<div class="mat-card-content">
+				<p>Click button below to set text in angular card.</p>
+				<button class="mat-focus-indicator mat-raised-button mat-button-base mat-primary" onclick="jsBridge.setText('This text is set from other plain HTML.')">HTML button</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

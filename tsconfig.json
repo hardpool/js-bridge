@@ -14,7 +14,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@hardpool/js-bridge": [
+        "dist/js-bridge/js-bridge",
+        "dist/js-bridge/",
+        "dist/js-bridge/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +125,50 @@
           }
         }
       }
-    }},
-  "defaultProject": "js-bridge-lib"
+    },
+    "js-bridge": {
+      "projectType": "library",
+      "root": "projects/js-bridge",
+      "sourceRoot": "projects/js-bridge/src",
+      "prefix": "hd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/js-bridge/tsconfig.lib.json",
+            "project": "projects/js-bridge/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/js-bridge/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/js-bridge/src/test.ts",
+            "tsConfig": "projects/js-bridge/tsconfig.spec.json",
+            "karmaConfig": "projects/js-bridge/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/js-bridge/tsconfig.lib.json",
+              "projects/js-bridge/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "js-bridge-lib",
+  "cli": {
+    "analytics": false
+  }
 }
