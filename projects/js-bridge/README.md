@@ -1,24 +1,63 @@
-# JsBridge
+# @hardpool/js-bridge
+![Example GIF](https://img.shields.io/badge/support-angular%209.x-brightgreen.svg)  ![Example GIF](https://img.shields.io/badge/support-angular%205.x+-brightgreen.svg)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app. 
 
-## Code scaffolding
+## Demo
+[Click here to see it in action!](https://jsbridge.hardikdabhi.com/)
 
-Run `ng generate component component-name --project js-bridge` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project js-bridge`.
-> Note: Don't forget to add `--project js-bridge` or else it will be added to the default project in your `angular.json` file. 
+## Installation
+`npm i @hardpool/js-bridge`
 
-## Build
+## Usage
+Import `JsBridgeModule` in your module.
+``` typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-Run `ng build js-bridge` to build the project. The build artifacts will be stored in the `dist/` directory.
+import { JsBridgeModule } from '@hardpool/js-bridge';
 
-## Publishing
+@NgModule({
+  // ...
+  imports: [
+	// ...
+	JsBridgeModule.forRoot()
+  ],
+  // ...
+})
+export class AppModule { }
+```
 
-After building your library with `ng build js-bridge`, go to the dist folder `cd dist/js-bridge` and run `npm publish`.
+Import service in component and expose component methods as required [using js bridge methods](#API).
 
-## Running unit tests
+component.ts
+``` typescript
+import { JsBridgeService } from '@hardpool/js-bridge';
 
-Run `ng test js-bridge` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  // ...
+})
+export class DemoComponent implements OnInit {
+	constructor(..., jsBridge: JsBridgeService, ...) {
+		jsBridge.exposeMethod(this, "someNamespace", "someMethod");
+	}
 
-## Further help
+	someMethod(...params) {
+		...
+	}
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+In javascript call method like,
+``` javascript
+someNamespace.someMethod(...args);
+```
+
+## API
+
+Below are the methods exposed by `JsBridge`.
+
+| Method | Details |
+| :--- | :--- |
+| `exposeMethod(classRef: any, namespace: string, fnName: string[] &#124; string)` | Expose angular component method on javascript window object. `classRef`: Reference of current class, generally `this` `namespace`: Name of namespace on which method is exposed, could be any string, if null method will be exposed on `window` `fnName`: Name of function to be exposed, nust match component method name |
+| `executeMethod(namespace: string, methodName: string, ...args: any[])` | Executes javascript method outsize angular |

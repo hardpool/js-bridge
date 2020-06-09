@@ -1,6 +1,10 @@
 {
-  "name": "@hardpool/js-bridge",
-  "version": "1.0.0",
+	"name": "@hardpool/js-bridge",
+	"description": "Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app.",
+	"author": {
+		"name": "Hardik Dabhi"
+	},
+  "version": "1.2.0",
 	"bugs": "https://github.com/hardikdabhi/js-bridge/issues",
 	"private": false,
 	"repository": {
@@ -9,8 +13,7 @@
 	},
 	"keywords": ["angular","angular4","angular5","angular 5","angular 6","javascript","co exist","jsbridge","js-bridge","method","expose"],
   "peerDependencies": {
-    "@angular/common": "^9.1.7",
-    "@angular/core": "^9.1.7",
-    "tslib": "^1.10.0"
+    "@angular/core": ">=5.0.0",
+    "@angular/common": ">=5.0.0"
   }
 }

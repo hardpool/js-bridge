@@ -1,10 +1,12 @@
-# @hardpool/js-bridge
+---
+layout: project
+title: home
+permalink: /
+banner:
+  title: "Bridge between pure vanilla javascript and angular"
+  description: "Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app. "
+---
 ![Example GIF](https://img.shields.io/badge/support-angular%209.x-brightgreen.svg)  ![Example GIF](https://img.shields.io/badge/support-angular%205.x+-brightgreen.svg)
-
-Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app. 
-
-## Demo
-[Click here to see it in action!](https://jsbridge.hardikdabhi.com/)
 
 ## Installation
 `npm i @hardpool/js-bridge`
@@ -61,3 +63,5 @@ Below are the methods exposed by `JsBridge`.
 | :--- | :--- |
 | `exposeMethod(classRef: any, namespace: string, fnName: string[] &#124; string)` | Expose angular component method on javascript window object. `classRef`: Reference of current class, generally `this` `namespace`: Name of namespace on which method is exposed, could be any string, if null method will be exposed on `window` `fnName`: Name of function to be exposed, nust match component method name |
 | `executeMethod(namespace: string, methodName: string, ...args: any[])` | Executes javascript method outsize angular |
+
+

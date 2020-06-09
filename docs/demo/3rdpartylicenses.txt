@@ -86,6 +86,7 @@ THE SOFTWARE.
 MIT
 
 @hardpool/js-bridge
+MIT
 
 core-js
 MIT

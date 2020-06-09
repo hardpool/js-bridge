@@ -1,0 +1,49 @@
+remote_theme: hardpool/hardpool-flat
+
+# Site Settings
+title                     : "@hardpool/js-bridge"
+title_separator           : "|"
+favicon                   : /test/assets/fav.ico
+csstheme                  : "project"
+
+# Site SEO
+seo:
+  gtmid: GTM-M3MXT24
+
+# Site Header
+main_logo                 : ""
+name                      : "@hardpool/js-bridge"
+description               : "Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app."
+header:
+  links:
+    - label: ""
+      icon: "fab fa-github fa-2x"
+      url: https://github.com/hardpool/js-bridge
+
+# Site Footer
+copyright: "Team Hardpool"
+footer:
+  insta_at: 2321794898.c625d4b.52d85f33c6074769a1052765b092bc06
+  links:
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-f"
+      url: https://www.facebook.com/dabhi.hardik
+      # url:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: https://github.com/hardikdabhi/
+      # url:
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: https://www.instagram.com/hardikdabhi22/
+
+# Sass/SCSS
+sass:
+  style: compressed
+
+# Reading Files
+include:
+  - _pages
+
+# config
+permalink: /:title

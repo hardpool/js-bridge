@@ -1,13 +1,16 @@
 {
-  "name": "@hardpool/js-bridge-lib",
+	"name": "@hardpool/js-bridge-lib",
+	"description": "Bridge between pure vanilla javascript and angular. Expose selected methods of angular component on javascript window object and call them from external javascript application. Making angular app plugable/co-exist with other front end app.",
+	"author": {
+		"name": "Hardik Dabhi"
+	},
 	"version": "1.0.0",
 	"bugs": "https://github.com/hardikdabhi/js-bridge/issues",
   "scripts": {
     "start": "ng serve",
-		"start-lib": "ng build js-bridge --watch",
-		"build": "ng build --prod --output-path docs --base-href /js-bridge/",
-		"build-lib": "ng build js-bridge",
-		"publish": "npm publish --access public"
+		"start-lib": "ng build js-bridge --prod --watch",
+		"build": "ng build --prod --output-path docs/demo --base-href /demo/",
+		"build-lib": "ng build js-bridge --prod"
   },
 	"private": false,
 	"repository": {
